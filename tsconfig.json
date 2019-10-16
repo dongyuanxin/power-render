@@ -1,0 +1,19 @@
+{
+  "compileOnSave": true,
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es6",
+    "noImplicitAny": false,
+    "outDir": "dist/es",
+    "sourceMap": false,
+    "allowJs": true,
+    "newLine": "LF",
+    "charset": "utf8"
+  }
+}

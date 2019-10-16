@@ -1,0 +1,19 @@
+{
+  "name": "vrender",
+  "version": "0.0.1",
+  "description": "Basic graphics",
+  "main": "dist/es/index.js",
+  "scripts": {
+    "dev": "tsc --watch --sourceMap true --module UMD --outDir dev/dist",
+    "build": "npm run build:es && npm run build:umd",
+    "build:es": "tsc -P tsconfig.json",
+    "build:umd": "tsc -P tsconfig.json --module UMD --outDir dist/umd",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dongyuanxin",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^1.18.2",
+    "typescript": "^3.6.4"
+  }
+}
