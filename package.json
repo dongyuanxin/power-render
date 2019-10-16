@@ -15,5 +15,17 @@
   "devDependencies": {
     "prettier": "^1.18.2",
     "typescript": "^3.6.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:dongyuanxin/vrender.git"
+  },
+  "keywords": [
+    "2d",
+    "canvas"
+  ],
+  "bugs": {
+    "url": "https://github.com/dongyuanxin/vrender/issues"
+  },
+  "homepage": "https://github.com/dongyuanxin/vrender#readme"
 }
