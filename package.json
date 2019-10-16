@@ -1,6 +1,6 @@
 {
-  "name": "vrender",
-  "version": "0.0.1",
+  "name": "power-render",
+  "version": "0.0.1-beta.3",
   "description": "Basic graphics",
   "main": "dist/es/index.js",
   "scripts": {
@@ -18,14 +18,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:dongyuanxin/vrender.git"
+    "url": "git+ssh://git@github.com:dongyuanxin/power-render.git"
   },
   "keywords": [
     "2d",
     "canvas"
   ],
   "bugs": {
-    "url": "https://github.com/dongyuanxin/vrender/issues"
+    "url": "https://github.com/dongyuanxin/power-render/issues"
   },
-  "homepage": "https://github.com/dongyuanxin/vrender#readme"
+  "homepage": "https://github.com/dongyuanxin/power-render#readme"
 }
