@@ -1,6 +1,6 @@
 {
   "name": "power-render",
-  "version": "0.0.1-beta.3",
+  "version": "0.0.1-beta.4",
   "description": "Basic graphics",
   "main": "dist/es/index.js",
   "scripts": {
