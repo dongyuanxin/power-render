@@ -1,4 +1,5 @@
 import { AbstractShape, TwoDCoordinate } from "./index";
+import { angleToRadian } from "./../util";
 
 interface CircleShapeScheme {
   r: number;
@@ -30,7 +31,7 @@ export default class Circle implements AbstractShape {
       shape: { r }
     } = this.data;
     ctx.beginPath();
-    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.arc(x, y, r, 0, angleToRadian(360));
     ctx.stroke();
     ctx.closePath();
   }
@@ -41,7 +42,7 @@ export default class Circle implements AbstractShape {
       shape: { r }
     } = this.data;
     ctx.beginPath();
-    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.arc(x, y, r, 0, angleToRadian(360));
     ctx.fill();
   }
 }
