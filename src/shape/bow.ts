@@ -1,22 +1,18 @@
 import { AbstractShape, TwoDCoordinate } from "./index";
 import { angleToRadian } from "./../util";
+import { SectorShapeScheme } from "./sector";
 
-export interface SectorShapeScheme {
-  r: number;
-  startAngle: number;
-  endAngle: number;
-  clockwise?: boolean;
-}
+type BowShapeScheme = SectorShapeScheme;
 
-export interface SectorData {
+interface BowData {
   start: TwoDCoordinate;
-  shape: SectorShapeScheme;
+  shape: BowShapeScheme;
 }
 
-export default class Sector implements AbstractShape {
-  private data: SectorData;
+export default class Bow implements AbstractShape {
+  private data: BowData;
 
-  constructor(data: SectorData) {
+  constructor(data: BowData) {
     this.data = data;
   }
 
@@ -24,7 +20,7 @@ export default class Sector implements AbstractShape {
     this.data.start = start;
   }
 
-  updateShape(shape: SectorShapeScheme) {
+  updateShape(shape: BowShapeScheme) {
     this.data.shape = shape;
   }
 
@@ -35,7 +31,6 @@ export default class Sector implements AbstractShape {
     } = this.data;
 
     ctx.beginPath();
-    ctx.moveTo(x, y);
     ctx.arc(
       x,
       y,
@@ -55,7 +50,6 @@ export default class Sector implements AbstractShape {
     } = this.data;
 
     ctx.beginPath();
-    ctx.moveTo(x, y);
     ctx.arc(
       x,
       y,

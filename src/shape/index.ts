@@ -12,3 +12,5 @@ export { default as Rectangle } from "./rectangle";
 export { default as Circle } from "./circle";
 
 export { default as Sector } from "./sector";
+
+export { default as Bow } from "./bow";

@@ -1,19 +1,19 @@
 import { AbstractShape, TwoDCoordinate } from "./index";
-interface SectorShapeScheme {
+export interface SectorShapeScheme {
     r: number;
     startAngle: number;
     endAngle: number;
     clockwise?: boolean;
 }
-interface SectorData {
+export interface SectorData {
     start: TwoDCoordinate;
     shape: SectorShapeScheme;
 }
 export default class Sector implements AbstractShape {
     private data;
     constructor(data: SectorData);
-    updateData(data: SectorData): void;
+    updateStart(start: TwoDCoordinate): void;
+    updateShape(shape: SectorShapeScheme): void;
     stroke(ctx: CanvasRenderingContext2D): void;
     fill(ctx: CanvasRenderingContext2D): void;
 }
-export {};

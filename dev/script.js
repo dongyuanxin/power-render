@@ -3,6 +3,7 @@ setTimeout(() => {
   test2();
   test3();
   test4();
+  test5();
 }, 500);
 
 /**
@@ -78,6 +79,7 @@ function test3() {
   pr.add(circle);
   pr.stroke();
 }
+
 /**
  * 绘制扇形
  */
@@ -86,7 +88,7 @@ function test4() {
   const canvas = document.querySelector("#canvas4");
   const pr = new PowerRender(canvas);
 
-  const circle = new Shape.Sector({
+  const sector = new Shape.Sector({
     start: [100, 100],
     shape: {
       r: 50,
@@ -95,16 +97,43 @@ function test4() {
     }
   });
 
-  pr.add(circle);
+  pr.add(sector);
   pr.fill();
 
-  circle.updateData({
+  sector.updateShape({
+    r: 50,
+    startAngle: 180,
+    endAngle: 240
+  });
+  pr.add(sector);
+  pr.stroke();
+}
+
+/**
+ * 绘制弓形
+ */
+function test5() {
+  const { PowerRender, Shape } = window.prender;
+  const canvas = document.querySelector("#canvas5");
+  const pr = new PowerRender(canvas);
+
+  const bow = new Shape.Bow({
+    start: [100, 100],
     shape: {
       r: 50,
-      startAngle: 180,
-      endAngle: 240
+      startAngle: 0,
+      endAngle: 120
     }
   });
-  pr.add(circle);
+
+  pr.add(bow);
+  pr.fill();
+
+  bow.updateShape({
+    r: 50,
+    startAngle: 180,
+    endAngle: 240
+  });
+  pr.add(bow);
   pr.stroke();
 }
