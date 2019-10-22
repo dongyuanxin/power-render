@@ -1,10 +1,10 @@
-import { AbstractShape, Point } from "./index";
+import { AbstractShape, TwoDCoordinate } from "./index";
 declare class Triangle implements AbstractShape {
     private data;
     constructor(data: {
-        points: Point[];
+        points: TwoDCoordinate[];
     });
-    updatePoints(points: Point[]): void;
+    updatePoints(points: TwoDCoordinate[]): void;
     stroke(ctx: CanvasRenderingContext2D): void;
     fill(ctx: CanvasRenderingContext2D): void;
 }

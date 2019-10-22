@@ -1,3 +1,8 @@
-export const say = () => {
-  console.log('hello')
+const RADIAN = Math.PI / 180;
+
+/**
+ * Transform angle to radian
+ */
+export function angleToRadian(angle: number): number {
+  return RADIAN * angle;
 }

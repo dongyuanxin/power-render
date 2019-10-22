@@ -2,6 +2,9 @@ export interface AbstractShape {
     stroke(CanvasRenderingContext2D: any): void;
     fill(CanvasRenderingContext2D: any): void;
 }
-export declare type Point = [number, number];
+export declare type TwoDCoordinate = [number, number];
 export { default as Triangle } from "./triangle";
 export { default as Rectangle } from "./rectangle";
+export { default as Circle } from "./circle";
+export { default as Sector } from "./sector";
+export { default as Bow } from "./bow";
