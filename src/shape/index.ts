@@ -3,8 +3,10 @@ export interface AbstractShape {
   fill(CanvasRenderingContext2D): void;
 }
 
-export type Point = [number, number];
+export type TwoDCoordinate = [number, number];
 
 export { default as Triangle } from "./triangle";
 
 export { default as Rectangle } from "./rectangle";
+
+export { default as Circle } from "./circle";

@@ -1,19 +1,19 @@
-import { AbstractShape, Point } from "./index";
+import { AbstractShape, TwoDCoordinate } from "./index";
 
 interface TriangleData {
-  points: Point[];
+  points: TwoDCoordinate[];
 }
 
 class Triangle implements AbstractShape {
   private data: TriangleData;
 
-  constructor(data: { points: Point[] }) {
+  constructor(data: { points: TwoDCoordinate[] }) {
     this.data = {
       points: data.points
     };
   }
 
-  updatePoints(points: Point[]) {
+  updatePoints(points: TwoDCoordinate[]) {
     this.data.points = points;
   }
 
