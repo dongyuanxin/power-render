@@ -9,7 +9,12 @@
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.say = function () {
-        console.log('hello');
-    };
+    var RADIAN = Math.PI / 180;
+    /**
+     * Transform angle to radian
+     */
+    function angleToRadian(angle) {
+        return RADIAN * angle;
+    }
+    exports.angleToRadian = angleToRadian;
 });

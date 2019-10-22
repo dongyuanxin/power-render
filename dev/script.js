@@ -2,6 +2,7 @@ setTimeout(() => {
   test1();
   test2();
   test3();
+  test4();
 }, 500);
 
 /**
@@ -73,6 +74,36 @@ function test3() {
   circle.updateStart([30, 30]);
   circle.updateShape({
     r: 10
+  });
+  pr.add(circle);
+  pr.stroke();
+}
+/**
+ * 绘制扇形
+ */
+function test4() {
+  const { PowerRender, Shape } = window.prender;
+  const canvas = document.querySelector("#canvas4");
+  const pr = new PowerRender(canvas);
+
+  const circle = new Shape.Sector({
+    start: [100, 100],
+    shape: {
+      r: 50,
+      startAngle: 0,
+      endAngle: 120
+    }
+  });
+
+  pr.add(circle);
+  pr.fill();
+
+  circle.updateData({
+    shape: {
+      r: 50,
+      startAngle: 180,
+      endAngle: 240
+    }
   });
   pr.add(circle);
   pr.stroke();

@@ -4,7 +4,7 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "./triangle", "./rectangle", "./circle"], factory);
+        define(["require", "exports", "./triangle", "./rectangle", "./circle", "./sector"], factory);
     }
 })(function (require, exports) {
     "use strict";
@@ -15,4 +15,6 @@
     exports.Rectangle = rectangle_1.default;
     var circle_1 = require("./circle");
     exports.Circle = circle_1.default;
+    var sector_1 = require("./sector");
+    exports.Sector = sector_1.default;
 });
