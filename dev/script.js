@@ -1,6 +1,7 @@
 setTimeout(() => {
   test1();
   test2();
+  test3();
 }, 500);
 
 /**
@@ -48,5 +49,31 @@ function test2() {
     height: 50
   });
   pr.add(rectangle);
+  pr.stroke();
+}
+
+/**
+ * 绘制圆形
+ */
+function test3() {
+  const { PowerRender, Shape } = window.prender;
+  const canvas = document.querySelector("#canvas3");
+
+  const circle = new Shape.Circle({
+    start: [10, 10],
+    shape: {
+      r: 5
+    }
+  });
+
+  const pr = new PowerRender(canvas);
+  pr.add(circle);
+  pr.fill();
+
+  circle.updateStart([30, 30]);
+  circle.updateShape({
+    r: 10
+  });
+  pr.add(circle);
   pr.stroke();
 }
