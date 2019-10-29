@@ -4,7 +4,7 @@
   "description": "Basic graphics",
   "main": "dist/es/index.js",
   "scripts": {
-    "dev": "tsc --watch --sourceMap true --module UMD --outDir dev/dist",
+    "dev": "tsc --watch --sourceMap true --module UMD --outDir dev/dist & http-server ./dev -p 8888",
     "build": "npm run build:es && npm run build:umd",
     "build:es": "tsc -P tsconfig.json",
     "build:umd": "tsc -P tsconfig.json --module UMD --outDir dist/umd",
@@ -13,6 +13,7 @@
   "author": "dongyuanxin",
   "license": "MIT",
   "devDependencies": {
+    "http-server": "^0.11.1",
     "prettier": "^1.18.2",
     "typescript": "^3.6.4"
   },
