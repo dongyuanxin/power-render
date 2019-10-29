@@ -4,6 +4,7 @@ setTimeout(() => {
   test3();
   test4();
   test5();
+  test6();
 }, 500);
 
 /**
@@ -135,5 +136,22 @@ function test5() {
     endAngle: 240
   });
   pr.add(bow);
+  pr.stroke();
+}
+
+function test6() {
+  const { PowerRender, Shape } = window.prender;
+  const canvas = document.querySelector("#canvas6");
+  const pr = new PowerRender(canvas);
+
+  const polygon = new Shape.Polygon({
+    start: [100, 100],
+    shape: {
+      r: 50,
+      side: 6
+    }
+  });
+
+  pr.add(polygon);
   pr.stroke();
 }
