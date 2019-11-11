@@ -12,3 +12,4 @@
 - 矩形 / rectangle
 - 扇形 / sector
 - 三角形 / triangle
+- 椭圆形 / ellipse

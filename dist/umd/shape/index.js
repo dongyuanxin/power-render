@@ -4,7 +4,7 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "./triangle", "./rectangle", "./circle", "./sector", "./bow", "./polygon"], factory);
+        define(["require", "exports", "./triangle", "./rectangle", "./circle", "./sector", "./bow", "./polygon", "./ellipse"], factory);
     }
 })(function (require, exports) {
     "use strict";
@@ -21,4 +21,6 @@
     exports.Bow = bow_1.default;
     var polygon_1 = require("./polygon");
     exports.Polygon = polygon_1.default;
+    var ellipse_1 = require("./ellipse");
+    exports.Ellipse = ellipse_1.default;
 });
