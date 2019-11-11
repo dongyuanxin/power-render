@@ -21,6 +21,18 @@ export default class Ellipse implements AbstractShape {
     }
   }
 
+  public updateStart(start: TwoDCoordinate) {
+    this.data.start = start;
+  }
+
+  public updateShape(shape: EllipseShapeScheme) {
+    this.data.shape = shape;
+  }
+
+  public updateMethod(method: "iterate" | "scale") {
+    this.data.method = method;
+  }
+
   private scaleDraw(ctx: CanvasRenderingContext2D) {
     const {
       start: [x, y],
@@ -75,6 +87,6 @@ export default class Ellipse implements AbstractShape {
 
   public fill(ctx: CanvasRenderingContext2D) {
     this.draw(ctx);
-    ctx.stroke;
+    ctx.fill();
   }
 }
