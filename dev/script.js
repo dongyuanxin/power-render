@@ -5,6 +5,7 @@ setTimeout(() => {
   test4();
   test5();
   test6();
+  test7();
 }, 500);
 
 /**
@@ -139,6 +140,9 @@ function test5() {
   pr.stroke();
 }
 
+/**
+ * 绘制多边形
+ */
 function test6() {
   const { PowerRender, Shape } = window.prender;
   const canvas = document.querySelector("#canvas6");
@@ -154,4 +158,34 @@ function test6() {
 
   pr.add(polygon);
   pr.stroke();
+}
+
+/**
+ * 绘制椭圆
+ */
+function test7() {
+  const { PowerRender, Shape } = window.prender;
+  const canvas = document.querySelector("#canvas7");
+  const pr = new PowerRender(canvas);
+
+  const ellipse = new Shape.Ellipse({
+    start: [100, 100],
+    shape: {
+      a: 20,
+      b: 15
+    },
+    method: "iterate"
+  });
+
+  pr.add(ellipse);
+  pr.stroke();
+
+  ellipse.updateMethod("scale");
+  ellipse.updateShape({
+    a: 10,
+    b: 7.5
+  });
+  console.log(ellipse);
+  pr.add(ellipse);
+  pr.fill();
 }
