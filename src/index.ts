@@ -1,9 +1,18 @@
 import * as Shape from "./shape/index";
 
+interface ShapeWithZindexScheme {
+  shape: Shape.AbstractShape;
+  zindex: number;
+}
+
+interface LayerSet {
+  [zindex: number]: CanvasRenderingContext2D;
+}
+
 class PowerRender {
   private container: HTMLCanvasElement;
-  private ctx: CanvasRenderingContext2D;
-  private shapes: Shape.AbstractShape[];
+  private layers: LayerSet;
+  private shapes: ShapeWithZindexScheme[];
 
   constructor(container: string | HTMLCanvasElement) {
     this.shapes = [];
@@ -12,31 +21,44 @@ class PowerRender {
     } else {
       this.container = container;
     }
-
-    this.ctx = this.container.getContext("2d");
   }
 
-  add(shape: Shape.AbstractShape) {
-    this.shapes.push(shape);
+  private getLayer(zindex: number): CanvasRenderingContext2D {
+    if (!this.layers[zindex]) {
+      this.layers[zindex] = this.container.getContext("2d");
+    }
+
+    return this.layers[zindex];
   }
 
-  stroke() {
-    const shape = this.shapes.pop();
-    shape.stroke(this.ctx);
+  public add(shape: Shape.AbstractShape, zindex: number = 0) {
+    this.shapes.push({
+      zindex,
+      shape
+    });
   }
 
-  strokeAll() {
-    this.shapes.forEach(shape => shape.stroke(this.ctx));
+  public stroke() {
+    const { shape, zindex } = this.shapes.pop();
+    shape.stroke(this.getLayer(zindex));
+  }
+
+  public strokeAll() {
+    this.shapes.forEach(({ shape, zindex }) =>
+      shape.stroke(this.getLayer(zindex))
+    );
     this.shapes = [];
   }
 
-  fill() {
-    const shape = this.shapes.pop();
-    shape.fill(this.ctx);
+  public fill() {
+    const { shape, zindex } = this.shapes.pop();
+    shape.fill(this.getLayer(zindex));
   }
 
-  fillAll() {
-    this.shapes.forEach(shape => shape.fill(this.ctx));
+  public fillAll() {
+    this.shapes.forEach(({ shape, zindex }) =>
+      shape.fill(this.getLayer(zindex))
+    );
     this.shapes = [];
   }
 }
