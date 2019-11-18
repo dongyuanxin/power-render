@@ -9,7 +9,7 @@
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var index_1 = require("./index");
+    const index_1 = require("./index");
     window["prender"] = {
         PowerRender: index_1.default,
         Shape: index_1.Shape,
