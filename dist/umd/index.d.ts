@@ -6,7 +6,7 @@ declare class PowerRender {
     private layers;
     constructor(container: string | HTMLCanvasElement);
     private getLayer;
-    add(shape: Shape.AbstractShape, zindex?: number, method?: DrawMethod): void;
+    add(shape: Shape.AbstractShape, method: DrawMethod, zindex?: number): void;
     draw(zindex?: number): void;
     drawAll(except?: number): void;
     clear(zindex?: number): void;

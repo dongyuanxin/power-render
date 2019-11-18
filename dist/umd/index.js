@@ -37,7 +37,7 @@
             }
             return this.layers[zindex];
         }
-        add(shape, zindex = 0, method = "fill") {
+        add(shape, method, zindex = 0) {
             const layer = this.getLayer(zindex);
             layer.contents.push({
                 shape,
@@ -63,7 +63,6 @@
             const rrZindexes = Reflect.ownKeys(this.layers).sort((a, b) => a - b);
             rrZindexes.forEach(rrZindex => {
                 if (except !== undefined && rrZindex + "" === except + "") {
-                    console.log(except);
                     return;
                 }
                 const { canvas, contents, ctx } = this.layers[rrZindex];
