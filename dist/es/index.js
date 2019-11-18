@@ -47,6 +47,38 @@ class PowerRender {
             this.ctx.drawImage(canvas, 0, 0);
         });
     }
+    drawAll(except) {
+        const rrZindexes = Reflect.ownKeys(this.layers).sort((a, b) => a - b);
+        rrZindexes.forEach(rrZindex => {
+            if (except !== undefined && rrZindex + "" === except + "") {
+                console.log(except);
+                return;
+            }
+            const { canvas, contents, ctx } = this.layers[rrZindex];
+            contents.forEach(({ shape, method }) => {
+                if (method === "fill") {
+                    shape.fill(ctx);
+                }
+                else {
+                    shape.stroke(ctx);
+                }
+            });
+            this.ctx.drawImage(canvas, 0, 0);
+        });
+    }
+    clear(zindex = 0) {
+        const layer = this.layers[zindex];
+        layer.ctx.clearRect(0, 0, layer.canvas.width, layer.canvas.height);
+        this.ctx.clearRect(0, 0, this.container.width, this.container.height);
+        this.drawAll(zindex);
+    }
+    clearAll() {
+        Reflect.ownKeys(this.layers).forEach(zindex => {
+            const { ctx, canvas } = this.layers[zindex];
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        });
+        this.ctx.clearRect(0, 0, this.container.width, this.container.height);
+    }
 }
 export default PowerRender;
 export { Shape };

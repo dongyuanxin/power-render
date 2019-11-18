@@ -8,6 +8,9 @@ declare class PowerRender {
     private getLayer;
     add(shape: Shape.AbstractShape, zindex?: number, method?: DrawMethod): void;
     draw(zindex?: number): void;
+    drawAll(except?: number): void;
+    clear(zindex?: number): void;
+    clearAll(): void;
 }
 export default PowerRender;
 export { Shape };
