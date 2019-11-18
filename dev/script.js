@@ -45,6 +45,14 @@ function test0() {
   });
   pr.add(rectangle3, 1, "fill");
   pr.draw();
+
+  setTimeout(() => {
+    pr.clear(1);
+  }, 500);
+
+  setTimeout(() => {
+    pr.clearAll();
+  }, 1000);
   // pr.removeLayer(1);
 }
 
