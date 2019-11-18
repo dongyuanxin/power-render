@@ -9,34 +9,33 @@
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var Triangle = /** @class */ (function () {
-        function Triangle(data) {
+    class Triangle {
+        constructor(data) {
             this.data = {
                 points: data.points
             };
         }
-        Triangle.prototype.updatePoints = function (points) {
+        updatePoints(points) {
             this.data.points = points;
-        };
-        Triangle.prototype.stroke = function (ctx) {
-            var points = this.data.points;
+        }
+        stroke(ctx) {
+            const { points } = this.data;
             ctx.beginPath();
-            ctx.moveTo.apply(ctx, points[0]);
-            ctx.lineTo.apply(ctx, points[1]);
-            ctx.lineTo.apply(ctx, points[2]);
-            ctx.lineTo.apply(ctx, points[0]);
+            ctx.moveTo(...points[0]);
+            ctx.lineTo(...points[1]);
+            ctx.lineTo(...points[2]);
+            ctx.lineTo(...points[0]);
             ctx.stroke();
             ctx.closePath();
-        };
-        Triangle.prototype.fill = function (ctx) {
-            var points = this.data.points;
+        }
+        fill(ctx) {
+            const { points } = this.data;
             ctx.beginPath();
-            ctx.moveTo.apply(ctx, points[0]);
-            ctx.lineTo.apply(ctx, points[1]);
-            ctx.lineTo.apply(ctx, points[2]);
+            ctx.moveTo(...points[0]);
+            ctx.lineTo(...points[1]);
+            ctx.lineTo(...points[2]);
             ctx.fill();
-        };
-        return Triangle;
-    }());
+        }
+    }
     exports.default = Triangle;
 });

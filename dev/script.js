@@ -1,4 +1,6 @@
 setTimeout(() => {
+  test0();
+  return;
   test1();
   test2();
   test3();
@@ -7,6 +9,44 @@ setTimeout(() => {
   test6();
   test7();
 }, 500);
+
+/**
+ * 图层问题
+ */
+function test0() {
+  const { PowerRender, Shape } = window.prender;
+  const canvas = document.querySelector("#canvas0");
+  const pr = new PowerRender(canvas);
+
+  const rectangle1 = new Shape.Rectangle({
+    start: [0, 0],
+    shape: {
+      width: 100,
+      height: 120
+    }
+  });
+  pr.add(rectangle1, 0, "stroke");
+
+  const rectangle2 = new Shape.Rectangle({
+    start: [10, 10],
+    shape: {
+      width: 50,
+      height: 60
+    }
+  });
+  pr.add(rectangle2, 1, "stroke");
+
+  const rectangle3 = new Shape.Rectangle({
+    start: [10, 10],
+    shape: {
+      width: 25,
+      height: 30
+    }
+  });
+  pr.add(rectangle3, 1, "fill");
+  pr.draw();
+  // pr.removeLayer(1);
+}
 
 /**
  * 绘制三角形
@@ -185,7 +225,6 @@ function test7() {
     a: 10,
     b: 7.5
   });
-  console.log(ellipse);
   pr.add(ellipse);
   pr.fill();
 }

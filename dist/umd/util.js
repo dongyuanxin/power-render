@@ -9,7 +9,7 @@
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var RADIAN = Math.PI / 180;
+    const RADIAN = Math.PI / 180;
     /**
      * Transform angle to radian
      */
@@ -17,4 +17,13 @@
         return RADIAN * angle;
     }
     exports.angleToRadian = angleToRadian;
+    function findMoreOrEqualThan(nums, target) {
+        return nums.reduce((prev, num) => {
+            if (num >= target) {
+                prev.push(num);
+            }
+            return prev;
+        }, []);
+    }
+    exports.findMoreOrEqualThan = findMoreOrEqualThan;
 });

@@ -9,31 +9,30 @@
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var util_1 = require("./../util");
-    var Circle = /** @class */ (function () {
-        function Circle(data) {
+    const util_1 = require("./../util");
+    class Circle {
+        constructor(data) {
             this.data = data;
         }
-        Circle.prototype.updateStart = function (TwoDCoordinate) {
+        updateStart(TwoDCoordinate) {
             this.data.start = TwoDCoordinate;
-        };
-        Circle.prototype.updateShape = function (shape) {
+        }
+        updateShape(shape) {
             this.data.shape = shape;
-        };
-        Circle.prototype.stroke = function (ctx) {
-            var _a = this.data, _b = _a.start, x = _b[0], y = _b[1], r = _a.shape.r;
+        }
+        stroke(ctx) {
+            const { start: [x, y], shape: { r } } = this.data;
             ctx.beginPath();
             ctx.arc(x, y, r, 0, util_1.angleToRadian(360));
             ctx.stroke();
             ctx.closePath();
-        };
-        Circle.prototype.fill = function (ctx) {
-            var _a = this.data, _b = _a.start, x = _b[0], y = _b[1], r = _a.shape.r;
+        }
+        fill(ctx) {
+            const { start: [x, y], shape: { r } } = this.data;
             ctx.beginPath();
             ctx.arc(x, y, r, 0, util_1.angleToRadian(360));
             ctx.fill();
-        };
-        return Circle;
-    }());
+        }
+    }
     exports.default = Circle;
 });

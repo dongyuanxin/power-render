@@ -13,25 +13,24 @@
      * Canvas支持路径(path)和矩形(rect)的绘制:
      *  https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
      */
-    var Rectangle = /** @class */ (function () {
-        function Rectangle(data) {
+    class Rectangle {
+        constructor(data) {
             this.data = data;
         }
-        Rectangle.prototype.updateStart = function (TwoDCoordinate) {
+        updateStart(TwoDCoordinate) {
             this.data.start = TwoDCoordinate;
-        };
-        Rectangle.prototype.updateShape = function (shape) {
+        }
+        updateShape(shape) {
             this.data.shape = shape;
-        };
-        Rectangle.prototype.stroke = function (ctx) {
-            var _a = this.data, _b = _a.start, x = _b[0], y = _b[1], _c = _a.shape, width = _c.width, height = _c.height;
+        }
+        stroke(ctx) {
+            const { start: [x, y], shape: { width, height } } = this.data;
             ctx.strokeRect(x, y, width, height);
-        };
-        Rectangle.prototype.fill = function (ctx) {
-            var _a = this.data, _b = _a.start, x = _b[0], y = _b[1], _c = _a.shape, width = _c.width, height = _c.height;
+        }
+        fill(ctx) {
+            const { start: [x, y], shape: { width, height } } = this.data;
             ctx.fillRect(x, y, width, height);
-        };
-        return Rectangle;
-    }());
+        }
+    }
     exports.default = Rectangle;
 });
