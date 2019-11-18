@@ -1,6 +1,6 @@
 {
   "name": "power-render",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Basic graphics",
   "main": "dist/es/index.js",
   "scripts": {
