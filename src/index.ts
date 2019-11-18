@@ -54,8 +54,8 @@ class PowerRender {
 
   public add(
     shape: Shape.AbstractShape,
-    zindex: number = 0,
-    method: DrawMethod = "fill"
+    method: DrawMethod,
+    zindex: number = 0
   ) {
     const layer = this.getLayer(zindex);
     layer.contents.push({
@@ -90,7 +90,6 @@ class PowerRender {
 
     rrZindexes.forEach(rrZindex => {
       if (except !== undefined && rrZindex + "" === except + "") {
-        console.log(except);
         return;
       }
 
@@ -120,57 +119,6 @@ class PowerRender {
     });
     this.ctx.clearRect(0, 0, this.container.width, this.container.height);
   }
-
-  // public stroke(zindex: number = 0) {
-  //   const rrZindexes = findMoreOrEqualThan(
-  //     Reflect.ownKeys(this.layers) as number[],
-  //     zindex
-  //   );
-  //   rrZindexes.forEach(rrZindex => {
-  //     this.ctx.drawImage(this.layers[rrZindex].canvas, 0, 0);
-  //   });
-  // }
-
-  // public strokeAll() {
-  //   this.shapes.forEach(({ shape, zindex }) =>
-  //     shape.stroke(this.getLayer(zindex))
-  //   );
-  //   this.shapes = [];
-  // }
-
-  // public fill(zindex: number = 0) {
-  //   const { shape, zindex } = this.shapes.pop();
-  //   shape.stroke(this.getLayer(zindex));
-
-  //   const rrZindexes = findMoreOrEqualThan(
-  //     Reflect.ownKeys(this.layers) as number[],
-  //     zindex
-  //   );
-  //   rrZindexes.forEach(rrZindex => {
-  //     this.ctx.drawImage(this.layers[rrZindex].canvas, 0, 0);
-  //   });
-  // }
-
-  // public fillAll() {
-  //   this.shapes.forEach(({ shape, zindex }) =>
-  //     shape.fill(this.getLayer(zindex))
-  //   );
-  //   this.shapes = [];
-  // }
-
-  // public removeLayer(zindex: number = 0) {
-  //   const layer = this.layers[zindex];
-  //   if (!layer) {
-  //     return;
-  //   }
-  //   console.log(layer);
-  //   layer.clearRect(0, 0, this.container.width, this.container.height);
-  //   this.layers[zindex] = null;
-  // }
-
-  // public removeAllLayer() {
-  //   const zindexSet: number[] = [];
-  // }
 }
 
 export default PowerRender;

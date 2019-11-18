@@ -1,17 +1,16 @@
 setTimeout(() => {
   test0();
-  return;
-  test1();
-  test2();
-  test3();
-  test4();
-  test5();
-  test6();
-  test7();
+  // test1();
+  // test2();
+  // test3();
+  // test4();
+  // test5();
+  // test6();
+  // test7();
 }, 500);
 
 /**
- * 图层问题
+ * 支持不同图层渲染
  */
 function test0() {
   const { PowerRender, Shape } = window.prender;
@@ -25,7 +24,7 @@ function test0() {
       height: 120
     }
   });
-  pr.add(rectangle1, 0, "stroke");
+  pr.add(rectangle1, "stroke", 0);
 
   const rectangle2 = new Shape.Rectangle({
     start: [10, 10],
@@ -34,7 +33,7 @@ function test0() {
       height: 60
     }
   });
-  pr.add(rectangle2, 1, "stroke");
+  pr.add(rectangle2, "stroke", 1);
 
   const rectangle3 = new Shape.Rectangle({
     start: [10, 10],
@@ -43,7 +42,7 @@ function test0() {
       height: 30
     }
   });
-  pr.add(rectangle3, 1, "fill");
+  pr.add(rectangle3, "fill", 1);
   pr.draw();
 
   setTimeout(() => {
@@ -53,186 +52,185 @@ function test0() {
   setTimeout(() => {
     pr.clearAll();
   }, 1000);
-  // pr.removeLayer(1);
 }
 
-/**
- * 绘制三角形
- */
-function test1() {
-  const { PowerRender, Shape } = window.prender;
-  const canvas = document.querySelector("#canvas1");
+// /**
+//  * 绘制三角形
+//  */
+// function test1() {
+//   const { PowerRender, Shape } = window.prender;
+//   const canvas = document.querySelector("#canvas1");
 
-  const triangle = new Shape.Triangle({
-    points: [[20, 20], [10, 90], [90, 90]]
-  });
+//   const triangle = new Shape.Triangle({
+//     points: [[20, 20], [10, 90], [90, 90]]
+//   });
 
-  const pr = new PowerRender(canvas);
-  pr.add(triangle);
-  pr.fill();
+//   const pr = new PowerRender(canvas);
+//   pr.add(triangle);
+//   pr.fill();
 
-  triangle.updatePoints([[110, 20], [100, 90], [180, 90]]);
-  pr.add(triangle);
-  pr.stroke();
-}
+//   triangle.updatePoints([[110, 20], [100, 90], [180, 90]]);
+//   pr.add(triangle);
+//   pr.stroke();
+// }
 
-/**
- * 绘制矩形
- */
-function test2() {
-  const { PowerRender, Shape } = window.prender;
-  const canvas = document.querySelector("#canvas2");
+// /**
+//  * 绘制矩形
+//  */
+// function test2() {
+//   const { PowerRender, Shape } = window.prender;
+//   const canvas = document.querySelector("#canvas2");
 
-  const rectangle = new Shape.Rectangle({
-    start: [0, 0],
-    shape: {
-      width: 100,
-      height: 120
-    }
-  });
+//   const rectangle = new Shape.Rectangle({
+//     start: [0, 0],
+//     shape: {
+//       width: 100,
+//       height: 120
+//     }
+//   });
 
-  const pr = new PowerRender(canvas);
-  pr.add(rectangle);
-  pr.fill();
+//   const pr = new PowerRender(canvas);
+//   pr.add(rectangle);
+//   pr.fill();
 
-  rectangle.updateStart([200, 200]);
-  rectangle.updateShape({
-    width: 50,
-    height: 50
-  });
-  pr.add(rectangle);
-  pr.stroke();
-}
+//   rectangle.updateStart([200, 200]);
+//   rectangle.updateShape({
+//     width: 50,
+//     height: 50
+//   });
+//   pr.add(rectangle);
+//   pr.stroke();
+// }
 
-/**
- * 绘制圆形
- */
-function test3() {
-  const { PowerRender, Shape } = window.prender;
-  const canvas = document.querySelector("#canvas3");
+// /**
+//  * 绘制圆形
+//  */
+// function test3() {
+//   const { PowerRender, Shape } = window.prender;
+//   const canvas = document.querySelector("#canvas3");
 
-  const circle = new Shape.Circle({
-    start: [10, 10],
-    shape: {
-      r: 5
-    }
-  });
+//   const circle = new Shape.Circle({
+//     start: [10, 10],
+//     shape: {
+//       r: 5
+//     }
+//   });
 
-  const pr = new PowerRender(canvas);
-  pr.add(circle);
-  pr.fill();
+//   const pr = new PowerRender(canvas);
+//   pr.add(circle);
+//   pr.fill();
 
-  circle.updateStart([30, 30]);
-  circle.updateShape({
-    r: 10
-  });
-  pr.add(circle);
-  pr.stroke();
-}
+//   circle.updateStart([30, 30]);
+//   circle.updateShape({
+//     r: 10
+//   });
+//   pr.add(circle);
+//   pr.stroke();
+// }
 
-/**
- * 绘制扇形
- */
-function test4() {
-  const { PowerRender, Shape } = window.prender;
-  const canvas = document.querySelector("#canvas4");
-  const pr = new PowerRender(canvas);
+// /**
+//  * 绘制扇形
+//  */
+// function test4() {
+//   const { PowerRender, Shape } = window.prender;
+//   const canvas = document.querySelector("#canvas4");
+//   const pr = new PowerRender(canvas);
 
-  const sector = new Shape.Sector({
-    start: [100, 100],
-    shape: {
-      r: 50,
-      startAngle: 0,
-      endAngle: 120
-    }
-  });
+//   const sector = new Shape.Sector({
+//     start: [100, 100],
+//     shape: {
+//       r: 50,
+//       startAngle: 0,
+//       endAngle: 120
+//     }
+//   });
 
-  pr.add(sector);
-  pr.fill();
+//   pr.add(sector);
+//   pr.fill();
 
-  sector.updateShape({
-    r: 50,
-    startAngle: 180,
-    endAngle: 240
-  });
-  pr.add(sector);
-  pr.stroke();
-}
+//   sector.updateShape({
+//     r: 50,
+//     startAngle: 180,
+//     endAngle: 240
+//   });
+//   pr.add(sector);
+//   pr.stroke();
+// }
 
-/**
- * 绘制弓形
- */
-function test5() {
-  const { PowerRender, Shape } = window.prender;
-  const canvas = document.querySelector("#canvas5");
-  const pr = new PowerRender(canvas);
+// /**
+//  * 绘制弓形
+//  */
+// function test5() {
+//   const { PowerRender, Shape } = window.prender;
+//   const canvas = document.querySelector("#canvas5");
+//   const pr = new PowerRender(canvas);
 
-  const bow = new Shape.Bow({
-    start: [100, 100],
-    shape: {
-      r: 50,
-      startAngle: 0,
-      endAngle: 120
-    }
-  });
+//   const bow = new Shape.Bow({
+//     start: [100, 100],
+//     shape: {
+//       r: 50,
+//       startAngle: 0,
+//       endAngle: 120
+//     }
+//   });
 
-  pr.add(bow);
-  pr.fill();
+//   pr.add(bow);
+//   pr.fill();
 
-  bow.updateShape({
-    r: 50,
-    startAngle: 180,
-    endAngle: 240
-  });
-  pr.add(bow);
-  pr.stroke();
-}
+//   bow.updateShape({
+//     r: 50,
+//     startAngle: 180,
+//     endAngle: 240
+//   });
+//   pr.add(bow);
+//   pr.stroke();
+// }
 
-/**
- * 绘制多边形
- */
-function test6() {
-  const { PowerRender, Shape } = window.prender;
-  const canvas = document.querySelector("#canvas6");
-  const pr = new PowerRender(canvas);
+// /**
+//  * 绘制多边形
+//  */
+// function test6() {
+//   const { PowerRender, Shape } = window.prender;
+//   const canvas = document.querySelector("#canvas6");
+//   const pr = new PowerRender(canvas);
 
-  const polygon = new Shape.Polygon({
-    start: [100, 100],
-    shape: {
-      r: 50,
-      side: 6
-    }
-  });
+//   const polygon = new Shape.Polygon({
+//     start: [100, 100],
+//     shape: {
+//       r: 50,
+//       side: 6
+//     }
+//   });
 
-  pr.add(polygon);
-  pr.stroke();
-}
+//   pr.add(polygon);
+//   pr.stroke();
+// }
 
-/**
- * 绘制椭圆
- */
-function test7() {
-  const { PowerRender, Shape } = window.prender;
-  const canvas = document.querySelector("#canvas7");
-  const pr = new PowerRender(canvas);
+// /**
+//  * 绘制椭圆
+//  */
+// function test7() {
+//   const { PowerRender, Shape } = window.prender;
+//   const canvas = document.querySelector("#canvas7");
+//   const pr = new PowerRender(canvas);
 
-  const ellipse = new Shape.Ellipse({
-    start: [100, 100],
-    shape: {
-      a: 20,
-      b: 15
-    },
-    method: "iterate"
-  });
+//   const ellipse = new Shape.Ellipse({
+//     start: [100, 100],
+//     shape: {
+//       a: 20,
+//       b: 15
+//     },
+//     method: "iterate"
+//   });
 
-  pr.add(ellipse);
-  pr.stroke();
+//   pr.add(ellipse);
+//   pr.stroke();
 
-  ellipse.updateMethod("scale");
-  ellipse.updateShape({
-    a: 10,
-    b: 7.5
-  });
-  pr.add(ellipse);
-  pr.fill();
-}
+//   ellipse.updateMethod("scale");
+//   ellipse.updateShape({
+//     a: 10,
+//     b: 7.5
+//   });
+//   pr.add(ellipse);
+//   pr.fill();
+// }
