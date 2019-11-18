@@ -135,6 +135,8 @@ class PowerRender {
   // }
 }
 
+console.log("ppp");
+
 export default PowerRender;
 
 export { Shape };
